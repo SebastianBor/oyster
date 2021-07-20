@@ -10,16 +10,16 @@ import {
   Proposal,
   ProposalInstruction,
   ProposalState,
-} from '../../../../models/accounts';
-import { GOVERNANCE_SCHEMA } from '../../../../models/serialisation';
+} from 'models/accounts';
+import { GOVERNANCE_SCHEMA } from 'models/serialisation';
 import { serialize } from 'borsh';
 
 import '../style.less';
 
-import { removeInstruction } from '../../../../actions/removeInstruction';
-import { useAccountChangeTracker } from '../../../../contexts/GovernanceContext';
-import { useProposalAuthority } from '../../../../hooks/apiHooks';
-import { useRpcContext } from '../../../../hooks/useRpcContext';
+import { removeInstruction } from 'actions/removeInstruction';
+import { useAccountChangeTracker } from 'contexts/GovernanceContext';
+import { useProposalAuthority } from 'hooks/apiHooks';
+import { useRpcContext } from 'hooks/useRpcContext';
 import { FlagInstructionErrorButton } from './buttons/flagInstructionErrorButton';
 import {
   PlayState,
