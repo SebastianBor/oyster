@@ -295,7 +295,7 @@ export const GOVERNANCE_SCHEMA = new Map<any, any>([
         ['governedAccount', 'pubkey'],
         ['config', GovernanceConfig],
         ['proposalCount', 'u32'],
-        ['reserved', [8]],
+        // ['reserved', [8]], comment out to make it compatible with old devnet version
       ],
     },
   ],
