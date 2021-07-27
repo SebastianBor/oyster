@@ -8,14 +8,15 @@ import { getExplorerUrl } from '../../utils/explorer';
 
 export const ExplorerLink = (props: {
   address: string | PublicKey;
-  type: string;
+  type: 'transaction' | 'address';
   code?: boolean;
   style?: React.CSSProperties;
   length?: number;
   short?: boolean;
   connection?: Connection;
+  text?: string;
 }) => {
-  const { type, code, short } = props;
+  const { type, code, short, text } = props;
   let { endpoint } = useConnectionConfig();
 
   const address =
@@ -28,9 +29,10 @@ export const ExplorerLink = (props: {
   }
 
   const displayAddress =
-    short || props.length
+    text ??
+    (short || props.length
       ? shortenAddress(address, props.length ?? 9)
-      : address;
+      : address);
 
   return (
     <a

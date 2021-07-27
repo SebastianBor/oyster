@@ -1,5 +1,5 @@
 import { DeleteOutlined } from '@ant-design/icons';
-import { ParsedAccount, contexts } from '@oyster/common';
+import { ParsedAccount, contexts, ExplorerLink } from '@oyster/common';
 
 import { Card, Button, Space } from 'antd';
 import Meta from 'antd/lib/card/Meta';
@@ -125,7 +125,14 @@ export function InstructionCard({
         { key: 'info', tab: 'Info' },
         { key: 'data', tab: 'Data' },
       ]}
-      title={'Instruction #' + position}
+      // title={ 'Instruction #' + position}
+      title={
+        <ExplorerLink
+          address={proposalInstruction.pubkey}
+          type="address"
+          text={`Instruction #${position}`}
+        ></ExplorerLink>
+      }
       activeTabKey={tabKey}
       onTabChange={setTabKey}
       actions={isEditable ? [deleteAction()] : undefined}
